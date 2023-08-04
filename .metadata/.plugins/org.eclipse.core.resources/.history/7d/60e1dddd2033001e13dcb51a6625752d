@@ -1,0 +1,39 @@
+package br.com.cesarschool.next.oo.dao;
+
+import br.com.cesarschool.next.oo.entidade.ContaCorrente;
+import br.com.cesarschool.next.oo.entidade.RegistroIdentificavel;
+import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
+
+public class DAOContaCorrente{
+	private CadastroObjetos cadastro = new CadastroObjetos(ContaCorrente.class);
+	private DAOGenerico dao = new DAOGenerico(ContaCorrente.class);
+	public DAOContaCorrente() {
+		
+	}
+	
+	public boolean incluir(ContaCorrente conta) {
+		return dao.incluir(conta);
+	}
+	
+	public boolean alterar(ContaCorrente conta) {
+		return dao.alterar(conta);
+	}
+	
+	public ContaCorrente buscar(String numero) {
+		return (ContaCorrente)dao.buscar(numero);
+	}
+	
+	public ContaCorrente[] buscarTodos(){
+		RegistroIdentificavel[] reg = dao.buscarTodos();
+		ContaCorrente[] cc = new ContaCorrente[reg.length];
+		for(int i = 0; i<cc.length; i++) {
+			cc[i] = (ContaCorrente)reg[i];
+		}
+		return cc;
+		
+	}
+	
+	public boolean excluir(String conta) {
+		return dao.excluir(conta);
+	}
+}

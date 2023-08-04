@@ -1,0 +1,58 @@
+package br.com.cesarschool.next.oo.apresentacao;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+import br.com.cesarschool.next.oo.dao.DAOContaCorrente;
+
+public class TelaContaCorrente {
+	private DAOContaCorrente dao = new DAOContaCorrente();
+	public static final Scanner sc = new Scanner(System.in);
+	
+	public TelaContaCorrente() {
+		
+	}
+	
+	public static void telaInicial() {
+		int opcao = 0;
+		while (true) {
+			System.out.println("Escolha uma opção: ");
+			System.out.println("1- Incluir nova conta corrente");
+			System.out.println("2- Incluir nova conta poupança");
+			System.out.println("3- Alterar número de conta");
+			System.out.println("4- Consultar conta");
+			System.out.println("5- Gerar relatório geral de contas bancárias");
+			System.out.println("6- Sair");
+			opcao = sc.nextInt();
+			try {
+				opcao = ENTRADA.nextInt();
+			} catch(InputMismatchException e) {
+					System.out.println(e.getMessage());
+			}
+			switch (opcao) {
+			case 1:
+				System.out.println("1");
+				break;
+			case 2:
+				System.out.println("2");
+				break;
+			case 3:
+				System.out.println("3");
+				break;
+			case 4:
+				System.out.println("4");
+				break;
+			case 5:
+				System.out.println("5");
+				break;
+			case 6:
+				System.out.println("Finalizando...");
+				System.exit(0);
+			default:
+				System.out.println("Opção inválida");
+
+			}
+			
+		}
+	}
+}

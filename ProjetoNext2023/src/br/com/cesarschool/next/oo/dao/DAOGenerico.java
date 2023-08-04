@@ -1,12 +1,13 @@
 package br.com.cesarschool.next.oo.dao;
 
+import java.io.Serializable;
+
 import br.com.cesarschool.next.oo.entidade.ContaCorrente;
 import br.com.cesarschool.next.oo.entidade.RegistroIdentificavel;
 import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
 
 public class DAOGenerico {
 	private CadastroObjetos cadastro;
-	
 	
 	DAOGenerico(){
 		
@@ -17,8 +18,8 @@ public class DAOGenerico {
 	}
 	
 	public boolean incluir(ContaCorrente reg) {
-		RegistroIdentificavel ccBusca = buscar(reg.obterChaves()); 
-		if (ccBusca != null) {
+		RegistroIdentificavel busca = buscar(reg.obterChaves()); 
+		if (busca != null) {
 			return false;
 		} else {
 			cadastro.incluir(reg, reg.obterChaves());
@@ -27,8 +28,8 @@ public class DAOGenerico {
 	}
 	
 	public boolean alterar(RegistroIdentificavel reg) {
-		RegistroIdentificavel ccBusca = buscar(reg.obterChaves());
-		if (ccBusca == null) {
+		RegistroIdentificavel busca = buscar(reg.obterChaves());
+		if (busca == null) {
 			return false;
 		}else {
 			cadastro.alterar(reg, reg.obterChaves());
@@ -37,19 +38,25 @@ public class DAOGenerico {
 	}
 	
 	public boolean excluir(String chave) {
-		
-		
-		
-		return false;
-		
+		RegistroIdentificavel busca = buscar(chave);
+		if (busca == null) {
+			return false;
+		} else {
+			cadastro.excluir(chave);
+			return true;
+		}
 	}
 	
-	
-	
-	public RegistroIdentificavel buscar(String codigo) {
-		return (RegistroIdentificavel)cadastro.buscar(codigo);
+	public RegistroIdentificavel buscar(String chave) {
+		return (RegistroIdentificavel)cadastro.buscar(chave);
 	}
 	
-	
-
+	public RegistroIdentificavel[] buscarTodos() {
+		Serializable[] ser = cadastro.buscarTodos(RegistroIdentificavel.class);
+		RegistroIdentificavel[] reg = new RegistroIdentificavel[ser.length];
+		for(int i = 0; i<ser.length; i++) {
+			reg[i] = (RegistroIdentificavel)ser[i];
+		}
+		return reg;	
+	}
 }

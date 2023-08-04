@@ -1,0 +1,23 @@
+package br.com.cesarschool.next.oo.apresentacao;
+
+import br.com.cesarschool.next.oo.dao.DAOContaCorrente;
+
+public class TelaContaCorrente {
+	public static final DAOContaCorrente dao = new DAOContaCorrente();
+	
+	
+	public void telaInicial() {
+		
+		
+		System.out.println("Escolha uma opção: ");
+		System.out.println("1- Incluir nova conta corrente");
+		System.out.println("2- Incluir nova conta poupança");
+		System.out.println("3- Alterar número de conta");
+		System.out.println("4- Consultar conta");
+		System.out.println("5- Gerar relatório geral de contas bancárias");
+		System.out.println("6- Sair");
+		
+		
+		
+	}
+}
