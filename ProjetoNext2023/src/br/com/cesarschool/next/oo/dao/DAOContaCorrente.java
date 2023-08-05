@@ -2,10 +2,9 @@ package br.com.cesarschool.next.oo.dao;
 
 import br.com.cesarschool.next.oo.entidade.ContaCorrente;
 import br.com.cesarschool.next.oo.entidade.RegistroIdentificavel;
-import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
 
 public class DAOContaCorrente{
-	private CadastroObjetos cadastro = new CadastroObjetos(ContaCorrente.class);
+
 	private DAOGenerico dao = new DAOGenerico(ContaCorrente.class);
 	public DAOContaCorrente() {
 		

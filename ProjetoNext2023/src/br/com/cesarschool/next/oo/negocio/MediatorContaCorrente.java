@@ -88,6 +88,20 @@ public class MediatorContaCorrente {
 		}
 	}
 	
+	public String excluir(String numero) {
+		if (numero == null || numero.isBlank()) {
+			return "Número de conta inválido";
+		} else {
+			boolean exclusao = dao.excluir(numero);
+			if (exclusao == false) {
+				return "Número de conta inexistente";
+			} else {
+				return null;
+			}
+		}
+	}
+	
+	
 	public ContaCorrente buscar(String numero) {
 		if (numero == null || numero.isBlank()) {
 			return null;

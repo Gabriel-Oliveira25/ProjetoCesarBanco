@@ -1,6 +1,5 @@
 package br.com.cesarschool.next.oo.apresentacao;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,13 +18,13 @@ public class TelaContaCorrente {
 	public void telaInicial() {
 		int opcao = 0;
 		do {
-
 			System.out.println("1- Incluir nova conta");
-			System.out.println("2- Creditar um valor na conta");
-			System.out.println("3- Debitar um valor na conta");
-			System.out.println("4- Consultar conta");
-			System.out.println("5- Gerar relatório geral de contas bancárias");
-			System.out.println("6- Sair");
+			System.out.println("2- Excluir uma conta");
+			System.out.println("3- Creditar um valor na conta");
+			System.out.println("4- Debitar um valor na conta");
+			System.out.println("5- Consultar conta");
+			System.out.println("6- Gerar relatório geral de contas bancárias");
+			System.out.println("7- Sair");
 			System.out.print("Escolha uma opção: ");
 
 			opcao = sc.nextInt();
@@ -34,27 +33,27 @@ public class TelaContaCorrente {
 				incluir();
 				break;
 			case 2:
-				creditar();
+				excluir();
 				break;
 			case 3:
-				debitar();
+				creditar();
 				break;
 			case 4:
-				buscar();
+				debitar();
 				break;
 			case 5:
-				gerarRelatorioGeral();
+				buscar();
 				break;
 			case 6:
+				gerarRelatorioGeral();
+				break;
+			case 7:
 				System.out.println("Finalizando...");
 				break;
 			default:
 				System.out.println("Opção inválida");
-
 			}
-
-
-		} while(opcao != 6);
+		} while(opcao != 7);
 	}
 	
 	public void incluir() {
@@ -92,6 +91,19 @@ public class TelaContaCorrente {
 			}
 		} else {
 			System.out.println("Opção inválida");
+		}
+	}
+	
+	public void excluir() {
+		System.out.print("Digite o número da conta que será excluída: ");
+		String numConta = sc.next();
+		
+		String exclusao = mediator.excluir(numConta);
+		
+		if (exclusao == null) {
+			System.out.println("Exclusão efetuada com sucesso!");
+		} else {
+			System.out.println(exclusao);
 		}
 	}
 	
@@ -143,6 +155,5 @@ public class TelaContaCorrente {
 		for (ContaCorrente contaCorrente : listaDeContas) {
 			System.out.println(contaCorrente);
 		}
-		
 	}
 }
