@@ -1,5 +1,6 @@
 package br.com.cesarschool.next.oo.negocio;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -30,6 +31,7 @@ public class MediatorContaCorrente {
 			
 			if(conta instanceof ContaPoupanca) {
 				ContaPoupanca contaPoupanca = (ContaPoupanca)conta;
+				contaPoupanca.setDataHoraCriacao(LocalDateTime.now());
 				boolean inclusao = dao.incluir(contaPoupanca);
 				if (!inclusao) {
 					return "Conta poupança já existente";
@@ -38,6 +40,7 @@ public class MediatorContaCorrente {
 				}
 			}
 			
+			conta.setDataHoraCriacao(LocalDateTime.now());
 			boolean inclusao = dao.incluir(conta);
 			if (!inclusao) {
 				return "Conta corrente já existente";
