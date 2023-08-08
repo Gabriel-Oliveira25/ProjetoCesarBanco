@@ -30,8 +30,8 @@ public class ContaPoupanca extends ContaCorrente{
         return "Nome: " + this.getNomeDoCorrentista() + 
         		"\nNúmero da conta: " + this.getNumeros() + 
         		"\nSaldo:" + this.getSaldo() + 
-        		"\nTempo de criação: " + this.obterTempoDeCriacao() + " dia(s)" + 
-        		"\nPercentual de bônus: " + this.percentualDeBonus + "\n";
+        		"\nTempo de criação: " + this.obterTempoDeCriacao() + " dia(s)\n" + 
+        		"\nPercentual de bônus: " + this.obterTempoDeCriacao() + " dia(s)\n";
     }
 	
 	@Override

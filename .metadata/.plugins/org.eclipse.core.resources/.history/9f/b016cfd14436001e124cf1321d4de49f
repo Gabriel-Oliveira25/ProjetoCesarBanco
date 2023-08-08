@@ -22,10 +22,6 @@ public class ContaCorrente extends RegistroIdentificavel implements Serializable
 	public void setNumeros(String numeros) {
 		this.numeros = numeros;
 	}
-	
-	public String getNumeros() {
-		return this.numeros;
-	}
 
 	public double getSaldo() {
 		return saldo;
@@ -49,10 +45,7 @@ public class ContaCorrente extends RegistroIdentificavel implements Serializable
 	}
 	
 	 public String toString() {
-	        return "Nome: " + this.nomeDoCorrentista + 
-	        		"\nNúmero da conta: " + 
-	        		this.numeros + "\nSaldo:" + 
-	        		this.saldo + "\nTempo de criação: " + this.obterTempoDeCriacao() + " dia(s)\n";
+	        return "Nome: " + this.nomeDoCorrentista + "\nNúmero da conta: " + this.numeros + "\nSaldo:" + this.saldo + "\nTempo de criação: " + this.obterTempoDeCriacao() + " dia(s)\n";
 	    }
 
 	@Override
