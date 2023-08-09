@@ -22,4 +22,5 @@ public abstract class RegistroIdentificavel implements Serializable{
 	}
 	
 	public abstract String obterChaves();
+
 }

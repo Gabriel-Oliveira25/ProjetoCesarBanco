@@ -50,9 +50,9 @@ public class ContaCorrente extends RegistroIdentificavel implements Serializable
 	
 	 public String toString() {
 	        return "Nome: " + this.nomeDoCorrentista + 
-	        		"\nNúmero da conta: " + this.numeros + 
-	        		"\nSaldo:" + this.saldo + 
-	        		"\nTempo de criação: " + super.obterTempoDeCriacao() + " dia(s)\n";
+	        		"\nNúmero da conta: " + 
+	        		this.numeros + "\nSaldo:" + 
+	        		this.saldo + "\nTempo de criação: " + this.obterTempoDeCriacao() + " dia(s)\n";
 	    }
 
 	@Override
